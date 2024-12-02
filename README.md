@@ -2,4 +2,13 @@
 
 Want to learn/use following languages for this year's AOC:
 - [x] Java
-- []
+- [] Python
+- [] JavaScript
+- [] TypeScript
+- [] C#
+- [] C++
+- [] Swift
+- [] Rust
+- [] SQL
+- [] Go
+- [] Elixir
