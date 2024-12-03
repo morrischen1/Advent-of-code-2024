@@ -3,7 +3,7 @@ import re
 list = []
 def FilePath():
     try:
-        f = open("C:\\Users\\nikla\\Dokument\\Advent Of Code 2024\\day 3\\data.txt", "r")
+        f = open("data.txt", "r")
         for x in f:
             pattern = r"mul\(\d+,\d+\)"
             tempList = re.findall(pattern, x)
