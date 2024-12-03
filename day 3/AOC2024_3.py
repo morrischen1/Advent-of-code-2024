@@ -1,34 +1,24 @@
 import re
 
-list = []
-def FilePath():
-    try:
-        f = open("data.txt", "r")
-        extend_mul = False
-        for x in f:
-            if "don't()" in x:
-                extend_mul = False
-            elif "do()" in x:
-                extend_mul = True
-            
-            if extend_mul:
-                pattern = r"mul\(\d+,\d+\)"
-                tempList = re.findall(pattern, x)
-                list.extend(tempList)
-        f.close()
-    except:
-        print("Check the path")
+sum = 0
 
-products = []
-def calculate():
-    for mul in list:
-        m = re.match(r"mul\((\d+),(\d+)\)", mul)
-        if m:
-            nbr1, nbr2 = map(int, m.groups())
-            products.append(nbr1 * nbr2)
+f = open("data.txt").read()
+regex = re.findall("mul\(\d+,\d+\)|don't\(\)|do\(\)", f)
+extend_mul = True
+for x in regex:
+    pattern = re.findall(r'\D+|\d+', x)
+    if len(pattern) == 1:
+        if pattern[0] == "don't()":
+            extend_mul = False
+        elif pattern[0] == "do()":
+            extend_mul = True
+    
+    if extend_mul:
+        tmp_sum = 1
+        for num in pattern:
+            if num.isdigit():
+                tmp_sum *= int(num)
+        if tmp_sum != 1:
+            sum += tmp_sum
 
-FilePath()
-calculate()
-
-print(sum(products))
-
+print(sum)
