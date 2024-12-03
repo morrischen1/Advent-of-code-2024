@@ -3,11 +3,18 @@ import re
 list = []
 def FilePath():
     try:
-        f = open("C:\\Users\\nikla\\Dokument\\Advent Of Code 2024\\day 3\\data.txt", "r")
+        f = open("data.txt", "r")
+        extend_mul = False
         for x in f:
-            pattern = r"mul\(\d+,\d+\)"
-            tempList = re.findall(pattern, x)
-            list.extend(tempList)
+            if "don't()" in x:
+                extend_mul = False
+            elif "do()" in x:
+                extend_mul = True
+            
+            if extend_mul:
+                pattern = r"mul\(\d+,\d+\)"
+                tempList = re.findall(pattern, x)
+                list.extend(tempList)
         f.close()
     except:
         print("Check the path")
@@ -23,7 +30,5 @@ def calculate():
 FilePath()
 calculate()
 
-total = 0
-for num in products:
-    total += num
-print(total)
+print(sum(products))
+
