@@ -8,7 +8,3 @@ Want to learn/use following languages for this year's AOC:
 - [] C#
 - [] C++
 - [] Swift
-- [] Rust
-- [] SQL
-- [] Go
-- [] Elixir
